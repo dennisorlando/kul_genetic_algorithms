@@ -237,7 +237,7 @@ def eliminate(pop, fit, off, off_fit, mu):
 # ----------------------------------------------------------------------
 
 # Modify the class name to match your student number.
-class r0123456:
+class TSPSolver:
 
     def __init__(self, mu=None, seed=42, patience=None, log_every=200):
         self.reporter = Reporter.Reporter(self.__class__.__name__)
@@ -352,6 +352,7 @@ if __name__ == '__main__':
         format="%(asctime)s %(levelname)s %(message)s",
         datefmt="%H:%M:%S",
     )
-    a = r0123456(mu=args.mu, seed=args.seed, patience=args.patience, log_every=args.log_every)
+    a = TSPSolver(mu=args.mu, seed=args.seed, patience=args.patience, log_every=args.log_every)
     a.reporter.allowedTime = args.time
     a.optimize(args.file)
+
