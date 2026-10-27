@@ -1,7 +1,7 @@
 import time
 import numpy as np
 import pandas as pd
-
+import argparse
 
 class GeneticTSP:
     """Same GA as your version (OX crossover, swap mutation, tournament selection,
@@ -157,9 +157,12 @@ def load_instance(csv_file):
 
 
 if __name__ == "__main__":
-    filename = "tour500.csv"   # or tour250 / tour750 / tour1000
-
-    matrix = load_instance(filename)
+    
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--file", default="data/tour500.csv")
+    args = parser.parse_args()
+    
+    matrix = load_instance(args.file)
     ga = GeneticTSP(
         matrix,
         population_size=250,
